@@ -1,8 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const path = require('path');
+const webpack = require('webpack');
 
 let pathToClean = 'dist';
+let proxyAgent = !!process.env.http_proxy ? new HttpsProxyAgent(process.env.http_proxy) : null;
 
 module.exports = {
 	mode: 'development',
@@ -13,22 +15,34 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(pathToClean),
-		new HtmlWebpackPlugin({template: './src/index.html'})
+		new HtmlWebpackPlugin({template: './src/index.html'}),
+		 new webpack.ProvidePlugin({
+		  $: "jquery",
+		  jquery: "jquery",
+		  "window.jQuery": "jquery",
+		  jQuery:"jquery"
+		})
 	],
 	module: {
   	rules: [
-	    /*{
+  		{
+        test: /\.scss$/,
+        use: ["style-loader", // creates style nodes from JS strings
+                "css-loader", // translates CSS into CommonJS
+                "sass-loader"],
+      },
+	    {
 	      test: /\.css$/,
 	      use: [
 	        'style-loader',
 	       {
 	          loader: 'css-loader',
-	          options: {
+	          /*options: {
 	            minify: isProdBuild
-	          }
+	          }*/
 	        }
 	      ]
-	    },*/
+	    },
 	    {
 	      test: /\.(html|png|gif|jpg|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 	      exclude: /index\.html/,
@@ -50,6 +64,14 @@ module.exports = {
 	devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 8080
+    port: 8080,
+    proxy: [{
+      	context: ["/api/v1/auth", "/api/v1"],
+        target: 'http://localhost:3000',
+        //changeOrigin: true,
+        //pathRewrite: { "^/api": "" },
+        //agent: proxyAgent
+      
+    }]
   }
 };

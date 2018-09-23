@@ -1,0 +1,28 @@
+@import url('../node_modules/bootstrap/dist/css/bootstrap.css');
+@import url('../node_modules/angular-toastr/dist/angular-toastr.css');
+ 
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
+
+.centered
+{
+  text-align: center;
+}
