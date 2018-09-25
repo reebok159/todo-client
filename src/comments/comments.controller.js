@@ -118,7 +118,7 @@
 
         new Comment(comment).delete().then(function(comment){
           $log.log(comment);
-          toastr.success("Task was deleted");
+          toastr.success("Comment was deleted");
           getComments(obj);
         }, function(err){
             $log.log(err);

@@ -19,9 +19,9 @@
 			</div>
 		</uib-accordion-heading>
 
-		<div ng-controller="TasksController as tasksCtrl">
-			<ng-include src="'src/tasks/tasks.html'"></ng-include>
-		</div>
+		
+		<tasks-tpl project="project"></tasks-tpl>
+		
 	</div>
 
 	<div ng-show="projCtrl.editedProject.id == project.id">
@@ -52,10 +52,7 @@
 
 </div>
 
+<projects-modals></projects-modals>
+<tasks-modals></tasks-modals>
 
-<ng-include src="'app/projects/projects.modals.html'"></ng-include>
-<ng-include src="'app/tasks/tasks.modals.html'"></ng-include>
-
-
-
-
+</div>

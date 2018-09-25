@@ -35,16 +35,20 @@ module.exports = {
 	      test: /\.css$/,
 	      use: [
 	        'style-loader',
-	       {
-	          loader: 'css-loader',
-	          /*options: {
-	            minify: isProdBuild
-	          }*/
-	        }
+     			'css-loader'
 	      ]
 	    },
 	    {
-	      test: /\.(html|png|gif|jpg|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          name:'[name].[ext]',
+          outputPath:'assets' //the icons will be stored in dist/assets folder
+        }
+      },
+	    {
+	      test: /\.(html|png|gif|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 	      exclude: /index\.html/,
 	      loader: 'html-loader',
 	      options: {

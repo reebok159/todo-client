@@ -1,5 +1,7 @@
-@import url('../node_modules/bootstrap/dist/css/bootstrap.css');
-@import url('../node_modules/angular-toastr/dist/angular-toastr.css');
+$bootstrap-sass-asset-helper: true !default;
+
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap';
+@import '~angular-toastr/dist/angular-toastr.css';
  
 .browsehappy {
   margin: 0.2em 0;

@@ -6,7 +6,6 @@
     .controller('TasksController', TasksCtrl);
 
 
-
     function TasksCtrl($log, $scope, $auth, $state, toastr, Task, $uibModal) {
 
       var vm = this;
