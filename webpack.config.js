@@ -69,6 +69,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 8080,
+    host: '0.0.0.0',
     proxy: [{
       	context: ["/api/v1/auth", "/api/v1"],
         target: 'http://localhost:3000',
