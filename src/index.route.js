@@ -8,15 +8,6 @@
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
-    /*$urlRouterProvider.otherwise('/');
-    $stateProvider.state('homepage', {
-        url: '/',
-        template: require('./home/home.html')
-    })
-    .state('about', {
-      url: '/about',
-      template: require('./home2/home.html')
-    })*/
     $stateProvider
       .state('main', {
         url: '/',
@@ -38,7 +29,3 @@
     $urlRouterProvider.otherwise('/');
   }
 })();
-
-/*
-
-*/

@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 var angular = require('angular');
-const path = require('path');
 require('@uirouter/angularjs');
 
 require('angular-toastr');

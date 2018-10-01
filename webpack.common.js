@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const path = require('path');
 const webpack = require('webpack');
 
@@ -11,7 +10,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
 	},
 	plugins: [
-		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({template: './src/index.html'}),
 		 new webpack.ProvidePlugin({
 		  $: "jquery",
