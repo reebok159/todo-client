@@ -28,19 +28,3 @@ module.exports = merge(common, {
   ]
 
 });
-
-
-
-
-
-    
-/*module.exports = merge(common, {
-  mode: 'production',
-	optimization:{
-    minimize: false,
-  },
-  plugins: [
-    new MinifyPlugin({ mangle: false })
-  ]
-});
-*/

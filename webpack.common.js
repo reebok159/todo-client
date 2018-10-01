@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 const path = require('path');
 const webpack = require('webpack');
-
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
 	entry: path.join(__dirname, 'src', 'app.js'),
@@ -10,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
 	},
 	plugins: [
+		new Dotenv({safe: true}),
 		new HtmlWebpackPlugin({template: './src/index.html'}),
 		 new webpack.ProvidePlugin({
 		  $: "jquery",

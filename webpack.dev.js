@@ -2,6 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
+
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
@@ -12,7 +13,7 @@ module.exports = merge(common, {
     host: '0.0.0.0',
     proxy: [{
       	context: ["/api/v1/auth", "/api/v1"],
-        target: 'http://localhost:3000', 
+        target: process.env.API_HOST, 
     }]
   }
 });

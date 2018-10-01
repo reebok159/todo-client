@@ -6,7 +6,7 @@
     //.service('ProjectsService', ProjectsService);
     .factory('Project', function(railsResourceFactory) {
       return railsResourceFactory({
-        url: '/api/v1/projects/{{id}}',
+        url: process.env.API_HOST + '/api/v1/projects/{{id}}',
         name: 'project'
       });
     });

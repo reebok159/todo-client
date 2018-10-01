@@ -5,7 +5,7 @@
     .module('todoListClient')
     .factory('Comment', function(railsResourceFactory, railsSerializer, Upload, $timeout) {
       var relation = railsResourceFactory({
-        url: '/api/v1/projects/{{projectId}}/tasks/{{taskId}}/comments/{{id}}',
+        url: process.env.API_HOST + '/api/v1/projects/{{projectId}}/tasks/{{taskId}}/comments/{{id}}',
         name: 'comment'
       });
 
