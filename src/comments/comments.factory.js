@@ -13,7 +13,7 @@
         return new Promise(function(resolve, reject)
         {
           obj.image.upload = Upload.upload({
-            url: '/api/v1/projects/'+obj.projectId+'/tasks/'+obj.taskId+'/comments',
+            url: process.env.API_HOST + '/api/v1/projects/'+obj.projectId+'/tasks/'+obj.taskId+'/comments',
             data: { comment: {text: obj.text, image: obj.image}}
           });
 
