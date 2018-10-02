@@ -2,7 +2,6 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = merge(common, {
@@ -21,9 +20,6 @@ module.exports = merge(common, {
         preset: ['default', { discardComments: { removeAll: true } }],
       },
       canPrint: true
-    }),
-  	new ngAnnotatePlugin({
-      add: true,
     })
   ]
 

@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
+const ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
 	entry: path.join(__dirname, 'src', 'app.js'),
@@ -11,6 +12,9 @@ module.exports = {
 	},
 	plugins: [
 		new Dotenv({safe: true}),
+  	new ngAnnotatePlugin({
+      add: true,
+    }),
 		new HtmlWebpackPlugin({template: './src/index.html'}),
 		 new webpack.ProvidePlugin({
 		  $: "jquery",
